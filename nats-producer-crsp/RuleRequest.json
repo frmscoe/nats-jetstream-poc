@@ -1,0 +1,103 @@
+{
+    "transaction": {
+        "TxTp": "pacs.002.001.12",
+        "FIToFIPmtSts": {
+            "GrpHdr": {
+                "MsgId": "f477-2c66-424c-a9cb-8337918cc2ba",
+                "CreDtTm": "2023-05-23T11:08:18.931Z"
+            },
+            "TxInfAndSts": {
+                "OrgnlInstrId": "5ab4fc7355de4ef8a75b78b00a681ed2255",
+                "OrgnlEndToEndId": "2c516801007642dfb892944ddeafr2fw2",
+                "TxSts": "ACCC",
+                "ChrgsInf": [
+                    {
+                        "Amt": {
+                            "Amt": 307.14,
+                            "Ccy": "USD"
+                        },
+                        "Agt": {
+                            "FinInstnId": {
+                                "ClrSysMmbId": {
+                                    "MmbId": "dfsp001"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "Amt": {
+                            "Amt": 153.57,
+                            "Ccy": "USD"
+                        },
+                        "Agt": {
+                            "FinInstnId": {
+                                "ClrSysMmbId": {
+                                    "MmbId": "dfsp001"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "Amt": {
+                            "Amt": 30.71,
+                            "Ccy": "USD"
+                        },
+                        "Agt": {
+                            "FinInstnId": {
+                                "ClrSysMmbId": {
+                                    "MmbId": "dfsp002"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "AccptncDtTm": "2021-12-03T15:24:26.000Z",
+                "InstgAgt": {
+                    "FinInstnId": {
+                        "ClrSysMmbId": {
+                            "MmbId": "dfsp001"
+                        }
+                    }
+                },
+                "InstdAgt": {
+                    "FinInstnId": {
+                        "ClrSysMmbId": {
+                            "MmbId": "dfsp002"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "networkMap": {
+        "messages": [
+            {
+                "id": "004_010@1.0.0",
+                "host": "http://gateway.openfaas:8080/function/off-transaction-aggregation-decisioning-processor-rel-1-0-0",
+                "cfg": "1.0.0",
+                "txTp": "pacs.002.001.12",
+                "channels": [
+                    {
+                        "id": "001@1.0.0",
+                        "host": "http://gateway.openfaas:8080/function/off-channel-aggregation-decisioning-processor-rel-1-0-0",
+                        "cfg": "1.0.0",
+                        "typologies": [
+                            {
+                                "id": "999_010@1.0.0",
+                                "host": "http://gateway.openfaas:8080/function/off-typology-processor-rel-1-0-0",
+                                "cfg": "1.0.0",
+                                "rules": [
+                                    {
+                                        "id": "010@1.0.0",
+                                        "host": "http://gateway.openfaas:8080/function/off-rule-010-rel-1-0-0",
+                                        "cfg": "1.0.0"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

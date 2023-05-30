@@ -1,0 +1,7 @@
+NATS
+docker pull nats:latest
+docker run -p 4222:4222 -ti nats:latest -js
+
+docker run --env=SERVER_URL=host.docker.internal:4222 -d nats-producer-crsp:latest
+docker run --env=SERVER_URL=host.docker.internal:4222 --env=FUNCTION_NAME=Rule-001@1.0.0 -d natsconsumerrule:latest
+https://github.com/nats-io/natscli/releases/

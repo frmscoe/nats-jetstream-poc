@@ -1,0 +1,11 @@
+NATS
+docker pull nats:latest
+docker run -p 4222:4222 -p 8222:8222 -ti nats:latest -js -m 8222
+
+docker run --env=SERVER_URL=host.docker.internal:4222 -d nats-producer-crsp:latest
+docker run --env=SERVER_URL=host.docker.internal:4222 --env=FUNCTION_NAME=Rule-001@1.0.0 -d natsconsumerrule:latest
+https://github.com/nats-io/natscli/releases/
+
+
+getTransactionPacs008
+getDebtorPacs002Edges -> getIncomingPacs002Edges

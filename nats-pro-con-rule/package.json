@@ -1,0 +1,68 @@
+{
+  "name": "nats-consumer-rule",
+  "version": "0.0.1",
+  "description": "nats-consumer-rule",
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node build/index.js",
+    "load": "node build/index.js && node build/index.js && node build/index.js && node build/index.js && node build/index.js",
+    "cleanup": "rm -rf build template jest.config.js jest.config.js.map node_modules",
+    "fix": "yarn fix:prettier && yarn fix:eslint",
+    "fix:eslint": "eslint --fix \"**/*.ts\"",
+    "fix:prettier": "prettier --write \"**/*.ts\"",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "lint:eslint": "eslint \"**/*.ts\"",
+    "lint:prettier": "prettier --check \"**/*.ts\"",
+    "test": "jest --config=jest.config.ts --passWithNoTests --no-cache",
+    "test:watch": "jest --config=jest.config.ts --watch --no-cache",
+    "test:unit": "yarn test ./src/test/unit",
+    "test:integration": "yarn test ./src/test/integration --detectOpenHandles"
+  },
+  "keywords": [
+    "actio",
+    "frms"
+  ],
+  "contributors": [
+    {
+      "name": "johanfol"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@types/uuid": "^8.3.1",
+    "dotenv": "8.2.0",
+    "log4js": "^6.3.0",
+    "nats": "^2.13.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/log4js": "^2.3.5",
+    "@types/node": "^14.14.43",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "4.3.8",
+    "lint-staged": "^10.5.4",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix \"**/*.ts\"",
+      "prettier --write \"**/*.ts\""
+    ]
+  }
+}
